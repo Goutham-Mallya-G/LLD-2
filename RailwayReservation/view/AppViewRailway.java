@@ -1,18 +1,18 @@
-package RailwayReservation.view;
+package view;
 
-import RailwayReservation.enums.BerthType;
-import RailwayReservation.enums.Gender;
-import RailwayReservation.model.Children;
-import RailwayReservation.model.Passenger;
-import RailwayReservation.service.Booking;
-import RailwayReservation.service.ListPrinting;
+import enums.BerthType;
+import enums.Gender;
+import model.Children;
+import model.Passenger;
+import service.AllocationService;
+import service.ListPrinting;
 
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
-public class AppView {
+public class AppViewRailway {
     Scanner sc = new Scanner(System.in);
-    Booking booking = new Booking();
+    AllocationService allocationService = new AllocationService();
     ListPrinting listPrinting = new ListPrinting();
     public void start() {
         boolean loop = true;
@@ -42,7 +42,7 @@ public class AppView {
 
     private void printCancelling() {
         int seatNo = getIntInput("Enter the Ticket no to cancel : ");
-        booking.cancel(seatNo);
+        allocationService.cancel(seatNo);
     }
 
     private void printBookedTickets() {
@@ -70,7 +70,7 @@ public class AppView {
             }
         }
         Passenger passenger = new Passenger(name, age, gender, berthPreference, child);
-        booking.bookSeat(passenger);
+        allocationService.bookSeat(passenger);
     }
 
     //scanners
@@ -101,7 +101,6 @@ public class AppView {
             try {
                 System.out.print(message);
                 num = sc.nextInt();
-                sc.nextLine();
                 return num;
             }catch(NoSuchElementException | IllegalStateException e){
                 sc.nextLine();

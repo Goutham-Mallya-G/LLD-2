@@ -1,8 +1,7 @@
-package RailwayReservation.model;
+package model;
 
-import RailwayReservation.enums.BerthType;
+import enums.BerthType;
 
-import java.awt.*;
 import java.util.ArrayList;
 
 public class Berth {

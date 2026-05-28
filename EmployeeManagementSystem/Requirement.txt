@@ -1,0 +1,136 @@
+# Employee Management System
+
+## Objective
+
+Develop a Java console-based application named **Employee Management System** using Object-Oriented Programming concepts.
+
+The employee data must be hardcoded in the application.
+
+---
+
+# Hardcoded Employee Data
+
+| ID | Name             | Age | Department          | Designation       | Reporting To  |
+| -- | ---------------- | --- | ------------------- | ----------------- | ------------- |
+| 1  | Sriram           | 45  | Management          | CEO               | None          |
+| 2  | Mukund           | 42  | HR                  | HR Manager        | Sriram        |
+| 3  | Sebastian        | 38  | Finance             | Finance Manager   | Sriram        |
+| 4  | Aashritha        | 32  | Product Management  | Dev Manager       | Sriram        |
+| 5  | Mohammad Rafi    | 35  | HR                  | HR Lead           | Mukund        |
+| 6  | Anjali Kumar     | 29  | HR                  | HR Associate      | Mohammad Rafi |
+| 7  | Joseph           | 40  | Finance             | Finance Associate | Sebastian     |
+| 8  | Ramachandran     | 27  | Product Development | Team Lead         | Aashritha     |
+| 9  | Abhinaya Shankar | 23  | Product Development | System Developer  | Ramachandran  |
+| 10 | Imran Khan       | 28  | Product Testing     | QA Lead           | Ramachandran  |
+
+---
+
+# Main Menu
+
+1. Display All Employees
+2. Filter and Update Employee Details
+3. Manager Operations
+4. Exit
+
+---
+
+# Model 1 – Display All Employees
+
+When the user selects this option:
+
+* Display all employee details.
+
+---
+
+# Model 2 – Filter and Update Employee Details
+
+## Step 1 – Apply Filters
+
+### Numeric Filter Operations
+
+| Operations   |
+| ------------ |
+| Equal        |
+| Not Equal    |
+| Greater Than |
+| Less Than    |
+
+### String Filter Operations
+
+| Operations    |
+| ------------- |
+| Equal         |
+| Not Equal     |
+| Contains      |
+| Not Contains  |
+| Starting With |
+| Ending With   |
+
+### Filtering Rules
+
+* After applying one filter:
+
+  * Display filtered employees.
+  * Ask the user whether they want to continue filtering.
+* If yes:
+
+  * Apply the next filter only on the already filtered list.
+
+---
+
+## Step 2 – Update Employee Details
+
+After filtering:
+
+* Allow the user to update employee details.
+
+### Steps
+
+1. Choose employee by ID.
+2. Select field to update.
+3. Enter new value.
+4. Display updated employee details.
+
+### Fields Allowed for Update
+
+* Name
+* Age
+* Department
+* Designation
+* Reporting To
+
+---
+
+# Model 3 – Manager Operations
+
+## Feature 1 – Display Employees Under Manager
+
+* Allow the user to enter a manager name.
+* Display all employees reporting under that manager.
+
+---
+
+## Feature 2 – Promote Employee
+
+* Allow promotion of employees by updating their designation.
+
+### Steps
+
+1. Enter employee ID.
+2. Enter new designation.
+3. Update employee designation.
+4. Display updated employee details.
+
+---
+
+# Technical Requirements
+
+* Use Java console application.
+* Use Object-Oriented Programming concepts.
+* Use classes and objects.
+* Use encapsulation with getters and setters.
+* Use ArrayList to store employees.
+* Use menu-driven programming.
+* Implement filtering using loops and conditions.
+* Keep employee data hardcoded.
+* Follow proper modular programming practices.

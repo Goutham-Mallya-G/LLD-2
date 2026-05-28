@@ -1,6 +1,6 @@
-package RailwayReservation.model;
+package model;
 
-import RailwayReservation.enums.Gender;
+import enums.Gender;
 
 public class Children {
     private String name;

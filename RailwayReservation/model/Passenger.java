@@ -1,7 +1,7 @@
-package RailwayReservation.model;
+package model;
 
-import RailwayReservation.enums.BerthType;
-import RailwayReservation.enums.Gender;
+import enums.BerthType;
+import enums.Gender;
 
 public class Passenger {
     private final String name;

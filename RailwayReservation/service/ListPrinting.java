@@ -1,8 +1,8 @@
-package RailwayReservation.service;
+package service;
 
-import RailwayReservation.db.DB;
-import RailwayReservation.model.Berth;
-import RailwayReservation.model.Passenger;
+import db.DB;
+import model.Berth;
+import model.Passenger;
 
 import java.util.List;
 import java.util.Queue;

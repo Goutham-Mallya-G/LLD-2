@@ -1,15 +1,14 @@
-package RailwayReservation.service;
+package service;
 
-import RailwayReservation.db.DB;
-import RailwayReservation.enums.BerthType;
-import RailwayReservation.model.Berth;
-import RailwayReservation.model.Passenger;
-import RailwayReservation.view.AppView;
+import db.DB;
+import enums.BerthType;
+import model.Berth;
+import model.Passenger;
+import view.AppViewRailway;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
-public class Booking {
+public class AllocationService {
 
     DB db = DB.getDBInstance();
     static int ticketCounter = 1;
@@ -17,7 +16,7 @@ public class Booking {
     public void bookSeat(Passenger passenger){
         List<Passenger> confirmedList = db.getConfirmedTicket();
         Queue<Passenger> racList = db.getRac();
-        if(passenger.getChild() != null || passenger.getAge() >= 60){
+        if(passenger.getBerthPreference().equals(BerthType.NONE)  && (passenger.getChild() != null || passenger.getAge() >= 60)){
             passenger.setBerthPreference(BerthType.LOWER);
         }
         Berth seat = getBerth(passenger.getBerthPreference());
@@ -33,15 +32,15 @@ public class Booking {
                 }
                 racList.add(passenger);
                 db.setRac(racList);
-                AppView.printMessage("Ticket booked in RAC in " + seat.getSeatNo());
+                AppViewRailway.printMessage("Ticket booked in RAC in " + seat.getSeatNo());
             }else if(db.getWaitingList().size() < db.getWaitingListLimit()){
                 Queue<Passenger> waitingList = db.getWaitingList();
                 passenger.setTicketNo(ticketCounter++);
                 waitingList.add(passenger);
                 db.setWaitingList(waitingList);
-                AppView.printMessage("You are in waitingList " + passenger.getTicketNo());
+                AppViewRailway.printMessage("You are in waitingList " + passenger.getTicketNo());
             }else{
-                AppView.printMessage("No tickets available");
+                AppViewRailway.printMessage("No tickets available");
             }
         }else{
             List<Passenger> passengers = seat.getPassengers();
@@ -50,7 +49,7 @@ public class Booking {
             passenger.setBerth(seat);
             confirmedList.add(passenger);
             db.setConfirmedTicket(confirmedList);
-            AppView.printMessage("Your ticket has booked with seat no " + seat.getSeatNo() +" as "+ seat.getBerthType() + " berth");
+            AppViewRailway.printMessage("Your ticket has booked with seat no " + seat.getSeatNo() +" as "+ seat.getBerthType() + " berth");
         }
     }
 
