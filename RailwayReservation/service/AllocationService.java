@@ -160,7 +160,7 @@ public class AllocationService {
                     racList.add(waitingListPassenger);
                 }
 
-                System.out.println("Ticket cancelled for " + passenger.getTicketNo());
+                AppViewRailway.printMessage("Ticket cancelled for " + passenger.getTicketNo());
                 return;
             }
         }
@@ -174,7 +174,7 @@ public class AllocationService {
                 for(int i = 0 ; i < passengerList.size() ; i++){
                     if(passengerList.get(i).getTicketNo() == ticketNo){
                         passengerList.remove(i);
-                        System.out.println(passengerList);
+                        AppViewRailway.printMessage(passengerList.toString());
                         break;
                     }
                 }
@@ -185,7 +185,7 @@ public class AllocationService {
                     waitingListPassenger.setBerth(racBerth);
                     racList.add(waitingListPassenger);
                 }
-                System.out.println("Ticket cancelled for " + passenger.getTicketNo());
+                AppViewRailway.printMessage("Ticket cancelled for " + passenger.getTicketNo());
                 return;
             }
         }
@@ -193,7 +193,7 @@ public class AllocationService {
             if(passenger.getTicketNo() == ticketNo){
                 waitingList = removeQueueElement(passenger,waitingList);
                 db.setWaitingList(waitingList);
-                System.out.println("Ticket cancelled for " + passenger.getTicketNo());
+                AppViewRailway.printMessage("Ticket cancelled for " + passenger.getTicketNo());
                 break;
             }
         }

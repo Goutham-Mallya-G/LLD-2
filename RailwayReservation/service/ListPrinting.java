@@ -2,7 +2,7 @@ package service;
 
 import db.DB;
 import model.Berth;
-import model.Passenger;
+import model.Passenger;import view.AppViewRailway;
 
 import java.util.List;
 import java.util.Queue;
@@ -14,28 +14,28 @@ public class ListPrinting {
     public void printBookedTickets() {
         List<Passenger> confirmedList = db.getConfirmedTicket();
         System.out.printf("%-10s | %-10s | %-10s | %-10s | %-10s | %-15s | %-10s" ,"Ticket No", "Name", "Gender", "Age", "Seat No" , "Allocated Berth", "Preferred Berth");
-        System.out.println();
-        System.out.println("-----------------------------------------------------------------------------------------------------");
+        AppViewRailway.printMessage(" ");
+        AppViewRailway.printMessage("-----------------------------------------------------------------------------------------------------");
         for(Passenger passenger : confirmedList){
             System.out.printf("%-10s | %-10s | %-10s | %-10s | %-10s | %-15s | %-10s",passenger.getTicketNo(), passenger.getName() , passenger.getGender() , passenger.getAge() , passenger.getBerth().getSeatNo() , passenger.getBerth().getBerthType() , passenger.getBerthPreference());
-            System.out.println();
+            AppViewRailway.printMessage(" ");
             if(passenger.getChild() != null){
                 System.out.printf("%-10s | %-10s | %-10s" ,"", passenger.getChild().getName(), passenger.getChild().getGender());
-                System.out.println();
+                AppViewRailway.printMessage(" ");
             }
         }
         Queue<Passenger> racList = db.getRac();
         for(Passenger passenger : racList){
             System.out.printf("%-10s  | %-10s | %-10s | %-10s | %-10s | %-15s | %-10s",passenger.getTicketNo(), passenger.getName() , passenger.getGender() , passenger.getAge() , passenger.getBerth().getSeatNo() , passenger.getBerth().getBerthType() , passenger.getBerthPreference());
-            System.out.println();
+            AppViewRailway.printMessage(" ");
             if(passenger.getChild() != null){
                 System.out.printf("%-10s  | %-10s | %-10s" ,"", passenger.getChild().getName(), passenger.getChild().getGender());
-                System.out.println();
+                AppViewRailway.printMessage(" ");
             }
         }
-        System.out.println();
-        System.out.println("Tickets filled : " + confirmedList.size());
-        System.out.println("RAC filled : " + racList.size());
+        AppViewRailway.printMessage(" ");
+        AppViewRailway.printMessage("Tickets filled : " + confirmedList.size());
+        AppViewRailway.printMessage("RAC filled : " + racList.size());
     }
 
     public void printAvailableTickets(){
@@ -82,18 +82,18 @@ public class ListPrinting {
             }
         }
         System.out.printf("%-10s | %-10s" , "Seat No" , "Berth Type");
-        System.out.println();
-        System.out.println("-----------------------------------------");
+        AppViewRailway.printMessage(" ");
+        AppViewRailway.printMessage("-----------------------------------------");
         for(Berth berth : map.values()){
             System.out.printf("%-10s | %-10s" , berth.getSeatNo() , berth.getBerthType());
-            System.out.println();
+            AppViewRailway.printMessage(" ");
         }
-        System.out.println();
+        AppViewRailway.printMessage(" ");
 
-        System.out.println("Available upper seat : " + upperCount);
-        System.out.println("Available middle seat : " + middleCount);
-        System.out.println("Available lower seat : " + lowerCount);
-        System.out.println("Available side upper seat : " + sideUpperCount);
-        System.out.println("Available side lower seat : " + sideLowerCount);
+        AppViewRailway.printMessage("Available upper seat : " + upperCount);
+        AppViewRailway.printMessage("Available middle seat : " + middleCount);
+        AppViewRailway.printMessage("Available lower seat : " + lowerCount);
+        AppViewRailway.printMessage("Available side upper seat : " + sideUpperCount);
+        AppViewRailway.printMessage("Available side lower seat : " + sideLowerCount);
     }
 }

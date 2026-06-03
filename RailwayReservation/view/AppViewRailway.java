@@ -95,7 +95,7 @@ public class AppViewRailway {
     }
 
 
-    public int getIntInput(String message){
+    private int getIntInput(String message){
         int num = -1;
         while(true){
             try {
@@ -109,7 +109,7 @@ public class AppViewRailway {
         }
     }
 
-    public String getStringInput(String message){
+    private String getStringInput(String message){
         System.out.print(message);
         String str = null;
         try {
@@ -121,7 +121,7 @@ public class AppViewRailway {
         return str;
     }
 
-    public Gender getGenderInput(String message){
+    private Gender getGenderInput(String message){
         Gender gender = null;
         System.out.println();
         System.out.println("options");
@@ -140,7 +140,7 @@ public class AppViewRailway {
         }
     }
 
-    public BerthType getBerthPreferenceInput(String message){
+    private BerthType getBerthPreferenceInput(String message){
         BerthType berthPreference= null;
         System.out.println("options");
         System.out.println("--------------");
